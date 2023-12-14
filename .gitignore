@@ -3,3 +3,6 @@
 
 *.env*
 !.env.example
+
+#? Remove this line when using this template:
+/prisma/migrations/

@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String               @id @default(uuid())
+  username            String               @unique
+  email               String               @unique
+  isVerified          Boolean              @default(false)
+  isBlocked           Boolean              @default(false)
+  isDeleted           Boolean              @default(false)
+  password            String?
+  lastLogin           DateTime?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  profile             UserProfile?
+  role                Role                 @default(user)
+  oauthProviders      OAuthProvider[]      @relation("oauthProviders")
+  resetPasswordTokens ResetPasswordToken[] @relation("resetPasswordTokens")
+  otps                OTP[]                @relation("otps")
+}
+
+model UserProfile {
+  id        String  @id @default(uuid())
+  firstName String? @db.VarChar(240)
+  lastName  String? @db.VarChar(240)
+  about     String? @db.VarChar(1200)
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String  @unique
+}
+
+enum Role {
+  user
+  admin
+}
+
+model OAuthProvider {
+  id         String   @id @default(uuid())
+  provider   String
+  providerId String   @unique
+  lastUsedAt DateTime
+  user       User     @relation("oauthProviders", fields: [userId], references: [id])
+  userId     String
+}
+
+model BlacklistedToken {
+  id            String   @id @default(uuid())
+  token         String   @unique
+  blacklistedAt DateTime @default(now())
+}
+
+model ResetPasswordToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation("resetPasswordTokens", fields: [userId], references: [id])
+  userId    String
+}
+
+model OTP {
+  id        String   @id @default(uuid())
+  code      Int      @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  user      User     @relation("otps", fields: [userId], references: [id])
+  userId    String
+}

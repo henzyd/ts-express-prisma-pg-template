@@ -1,0 +1,102 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Verify User</title>
+    <style type="text/css">
+      h1, h2, h3, h4, h5, h6, p { color: #222222; font-family: "Work Sans",
+      sans-serif; margin: 0; } html { width: 100%; } body { margin: 0; padding:
+      0; width: 100%; } p { text-align: center; line-height: 180%;
+      letter-spacing: -0.064px; font-size: 14px; } .code { text-align: center; }
+      .header { width: 180px; } table { width: 80%; padding: 16px; margin: 0
+      auto; } td { padding: 4px 0; } .footer { padding: 15px 0 30px 0; } .footer
+      img { width: 160px; } @media only screen and (max-width: 767px) { .header
+      { width: 160px; } table { width: 100%; padding: 16px; } } @media only
+      screen and (max-width: 450px) { table { padding: 12px; } }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td align="center" style="padding: 10px 0">
+          <img class="header" src="[[logo-url]]" alt="[[company-name]] logo" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <p style="background-color: #f1ecf6; font-size: 0; height: 2px"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h1
+            style="
+              font-weight: 400;
+              font-size: 17px;
+              padding-bottom: 20px;
+              padding-left: 1%;
+            "
+          >
+            Hi
+            {{name}}👋,
+          </h1>
+          <p>
+            To proceed further with your signup process please enter the otp
+            below.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 0">
+          <h3 class="code">{{code}}</h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Please note that this code will expire in 5 minutes.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p style="padding: 30px 0 0 0; text-align: start">
+            Best regards,
+            <br />
+            The [[company-name]] Team
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <p style="background-color: #f1ecf6; font-size: 0; height: 2px"></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="footer" align="center">
+          <img class="header" src="[[logo-url]]" alt="[[company-name]] logo" />
+          <p
+            style="
+              color: #667085;
+              font-size: 10px;
+              line-height: 0;
+              padding-top: 16px;
+            "
+          >
+            © 2023 [[company-name]]. All Rights Reserved.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
