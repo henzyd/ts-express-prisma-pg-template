@@ -1,6 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import { DATABASE_URL, NODE_ENV } from "./env";
 
+console.log(DATABASE_URL);
+
 const prisma = new PrismaClient({
   log: [
     {
